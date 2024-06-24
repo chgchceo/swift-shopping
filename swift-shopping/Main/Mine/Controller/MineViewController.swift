@@ -12,7 +12,7 @@ class MineViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "我的"
     }
     
 
