@@ -8,54 +8,42 @@
 import UIKit
 import HandyJSON
 
-class HomeModel: HandyJSON {
+class BaseModel:HandyJSON{
+    
+    required init() {
+        
+    }
+}
+
+class HomeModel: BaseModel {
 
     var status:Int? = 0
     var message:String? = ""
     var data:DataModel?
-    
-    required init() {
-        
-    }
 }
 
-class DataModel:HandyJSON{
+class DataModel:BaseModel{
     
     var pageData:PageDataModel?
-    
-    
-    required init() {
-        
-        
-    }
+
 }
 
 
-class PageDataModel:HandyJSON{
+class PageDataModel:BaseModel{
     
     
     var items:[ItemsModel]?
     
-    required init() {
-        
-        
-    }
 }
 
-class ItemsModel:HandyJSON{
+class ItemsModel:BaseModel{
     
     var name:String = ""
     var type:String = ""
     var data:[DetailModel]?
-    
-    
-    required init() {
-        
-        
-    }
 }
 
-class DetailModel:HandyJSON{
+class DetailModel:BaseModel{
     
     var imgUrl:String?
     var imgName:String?
@@ -68,8 +56,4 @@ class DetailModel:HandyJSON{
     var goods_price_min:String?
     var goods_name:String?
     var goods_sales:String?
-    
-    required init() {
-        
-    }
 }
