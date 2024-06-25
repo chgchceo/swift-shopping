@@ -27,7 +27,11 @@ class HomeCollectionView: UIView, UICollectionViewDataSource ,UICollectionViewDe
         
         let layout = UICollectionViewFlowLayout()
         
-        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
+        let w = (ScreenWidth-5)/5.0
+        layout.itemSize = CGSize(width: w, height: 100)
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         
         collectionView?.dataSource = self
         collectionView?.delegate = self
@@ -45,10 +49,21 @@ class HomeCollectionView: UIView, UICollectionViewDataSource ,UICollectionViewDe
        
         let cell:HomeCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
         
+        let detailData:DetailModel = self.data![indexPath.row] as! DetailModel
+        
+        cell.titleLab.text = detailData.text
+        cell.imgView.sd_setImage(with: URL(string: detailData.imgUrl ?? ""))
         return cell
     }
     
 
+    func setData(data:Array<Any>) -> Void {
+        
+        
+        self.data = data
+        self.collectionView?.reloadData()
+        
+    }
     
     
     required init?(coder: NSCoder) {

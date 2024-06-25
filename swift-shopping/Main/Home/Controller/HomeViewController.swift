@@ -16,6 +16,9 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     var homeModel:HomeModel?
     var tableView:UITableView?
     var data:Array<DetailModel>?
+    var headerView:UIView?
+    var bannerView:HomeBannerView? = HomeBannerView()
+    var collectionView:HomeCollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,48 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             
             self.tableView?.mj_footer?.endRefreshingWithNoMoreData()
         })
+    }
+    
+    func refreshHeaderView() -> Void {
+        
+        let bannerData = self.homeModel?.data?.pageData?.items?[1].data
+        let categoryData = self.homeModel?.data?.pageData?.items?[3].data
+        
+        var height = 0
+        if bannerData?.count ?? 0 > 0{
+            
+            self.headerView = UIView()
+            self.headerView?.addSubview(self.bannerView!)
+            self.bannerView?.setBannerData(data: bannerData!)
+            self.bannerView?.backgroundColor = UIColor.orange
+            self.bannerView?.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 200)
+            height += 200
+        }
+        
+        if categoryData?.count ?? 0 > 0{
+            
+            if height == 0{
+                
+                self.headerView = UIView()
+            }
+            if (self.collectionView == nil){
+                
+                self.collectionView = HomeCollectionView(frame: CGRect(x: 0, y: height, width: Int(ScreenWidth), height: 200))
+            }
+            self.collectionView?.backgroundColor = UIColor.green
+            self.headerView?.addSubview(self.collectionView!)
+            self.collectionView?.setData(data: categoryData!)
+            self.collectionView?.frame = CGRect(x: 0, y: height, width: Int(ScreenWidth), height: 200)
+            height += 200
+        }
+        
+        if height > 0  {
+            
+            self.headerView?.frame = CGRect(x: 0, y: 0, width: Int(ScreenWidth), height: height)
+            self.tableView?.tableHeaderView = self.headerView
+            self.headerView?.backgroundColor = UIColor.white
+            self.tableView?.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +131,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
                 self.homeModel = model
                 self.data = model.data?.pageData?.items?[6].data
                 self.tableView?.reloadData()
+                self.refreshHeaderView()
             }
             self.tableView?.mj_header?.endRefreshing()
             self.hiddenLoadingView()
@@ -109,6 +155,12 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     
     @IBAction func searchButtAc(_ sender: Any) {
+        
+        let historyVc = SearchHistoryViewController()
+        
+        historyVc.hidesBottomBarWhenPushed = true
+        
+        self.navigationController?.pushViewController(historyVc, animated: true)
     }
     
 }
