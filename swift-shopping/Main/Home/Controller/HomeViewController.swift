@@ -7,10 +7,12 @@
 
 import UIKit
 import HandyJSON
+import MJRefresh
 
 class HomeViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     
+    @IBOutlet weak var searchBtn: UIButton!
     var homeModel:HomeModel?
     var tableView:UITableView?
     var data:Array<DetailModel>?
@@ -20,19 +22,29 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
 
         self.navigationItem.title = "首页"
         
-        self.view.backgroundColor = UIColor.lightGray
         initView()
-        initData()
+        self.tableView?.mj_header?.beginRefreshing()
     }
     
     func initView() -> Void {
         
-        self.tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), style: .grouped)
+        self.searchBtn.layer.cornerRadius = 22
+        self.tableView = UITableView(frame: CGRect.init(x: 0, y: 60, width: ScreenWidth, height: ScreenHeight-NavigationBarHeight-TabBarHeight), style: .grouped)
         self.view.addSubview(self.tableView!)
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
         
         self.tableView?.register(UINib.init(nibName: "GoodsListTableViewCell", bundle: nil), forCellReuseIdentifier: "GoodsListTableViewCell")
+        
+        self.tableView?.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            
+            self.initData()
+        })
+        
+        self.tableView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+            
+            self.tableView?.mj_footer?.endRefreshingWithNoMoreData()
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,11 +66,20 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         return 170
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return nil
+    }
+    
     func initData() -> Void {
         
-        let config = LNNetworkConfiguration(baseURL: URL(string: "1"))
-            
-         LNNetworkManager.default.configuration = config
+        
+        self.showLoadingView()
         LNRequest.get(path: "https://smart-shop.itheima.net/index.php?s=/api/page/detail") { request, responseData in
             
             if let model = HomeModel.deserialize(from: responseData as? [String:Any]){
@@ -66,7 +87,8 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
                 self.data = model.data?.pageData?.items?[6].data
                 self.tableView?.reloadData()
             }
-            
+            self.tableView?.mj_header?.endRefreshing()
+            self.hiddenLoadingView()
 //            let data:[String:Any] = responseData as! [String : Any]
 //            let pageData:[String:Any] = data["data"] as! [String : Any]
 //            let pageData2:[String:Any] = pageData["pageData"] as! [String : Any]
@@ -86,5 +108,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     
     
+    @IBAction func searchButtAc(_ sender: Any) {
+    }
     
 }

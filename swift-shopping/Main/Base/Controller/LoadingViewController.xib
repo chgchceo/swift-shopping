@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingViewController" customModule="swift_shopping" customModuleProvider="target">
+            <connections>
+                <outlet property="activityView" destination="thy-YW-WMh" id="Tsz-yn-8rc"/>
+                <outlet property="bgView" destination="GNT-9H-QjV" id="0Lv-cy-Jir"/>
+                <outlet property="megLab" destination="mqU-J2-7VY" id="pgf-4o-970"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNT-9H-QjV">
+                    <rect key="frame" x="137.66666666666666" y="362" width="118" height="118"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="thy-YW-WMh">
+                            <rect key="frame" x="41" y="22" width="37" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="OBX-N5-JiU"/>
+                                <constraint firstAttribute="width" constant="37" id="QWK-do-py8"/>
+                            </constraints>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在加载" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqU-J2-7VY">
+                            <rect key="frame" x="8" y="61" width="102" height="52"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="118" id="0WW-Dk-7yx"/>
+                        <constraint firstItem="mqU-J2-7VY" firstAttribute="leading" secondItem="GNT-9H-QjV" secondAttribute="leading" constant="8" id="Hd8-NV-9X4"/>
+                        <constraint firstItem="thy-YW-WMh" firstAttribute="leading" secondItem="GNT-9H-QjV" secondAttribute="leading" constant="41" id="MSk-fp-3nt"/>
+                        <constraint firstAttribute="trailing" secondItem="mqU-J2-7VY" secondAttribute="trailing" constant="8" id="co5-ny-Dh2"/>
+                        <constraint firstItem="mqU-J2-7VY" firstAttribute="top" secondItem="thy-YW-WMh" secondAttribute="bottom" constant="2" id="e7T-xX-Aez"/>
+                        <constraint firstAttribute="height" constant="118" id="iMy-2D-2dR"/>
+                        <constraint firstItem="thy-YW-WMh" firstAttribute="top" secondItem="GNT-9H-QjV" secondAttribute="top" constant="22" id="ire-vl-uvB"/>
+                        <constraint firstAttribute="bottom" secondItem="mqU-J2-7VY" secondAttribute="bottom" constant="5" id="mEf-g5-Pgz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GNT-9H-QjV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KrU-UF-HWn"/>
+                <constraint firstItem="GNT-9H-QjV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-5" id="VBO-Uq-eVK"/>
+            </constraints>
+            <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
+        </view>
+    </objects>
+</document>

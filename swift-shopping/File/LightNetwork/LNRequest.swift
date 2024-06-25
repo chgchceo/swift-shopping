@@ -33,6 +33,9 @@ open class LNRequest: LNBaseRequest {
     /// - Returns: The created `DataRequest`.
     @discardableResult
     open class func request(path: String, method: HTTPMethod = .get, parameters: Parameters? = nil, success: LNRequestSuccess?, failure: LNRequestFailure?) -> DataRequest? {
+        
+        LNNetworkManager.default.configuration = LNConfig
+        
         // init with class object
         let req: LNRequest = self.init(path: path)
         if req.prepareRequest(path: path, method: method, parameters: parameters) == false {
