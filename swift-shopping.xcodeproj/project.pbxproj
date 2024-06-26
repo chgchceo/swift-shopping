@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14092F862C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14092F842C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift */; };
+		14092F872C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14092F852C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib */; };
 		14BA6FB72C2905EC0066E831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FB62C2905EC0066E831 /* AppDelegate.swift */; };
 		14BA6FC12C2905EC0066E831 /* swift_shopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FBF2C2905EC0066E831 /* swift_shopping.xcdatamodeld */; };
 		14BA6FC32C2905EF0066E831 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BA6FC22C2905EF0066E831 /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14092F842C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		14092F852C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BA6FB32C2905EC0066E831 /* swift-shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-shopping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BA6FB62C2905EC0066E831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BA6FC02C2905EC0066E831 /* swift_shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swift_shopping.xcdatamodel; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 		14E0B4982C291A230021ED24 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14092F842C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift */,
+				14092F852C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				14FF14CC2C2AB6CC008BF1C4 /* SearchHistoryViewController.xib in Resources */,
 				14FF14BC2C2A6E92008BF1C4 /* HomeViewController.xib in Resources */,
 				14FF14C82C2A7264008BF1C4 /* HomeCollectionViewCell.xib in Resources */,
+				14092F872C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib in Resources */,
 				14BA6FC32C2905EF0066E831 /* Assets.xcassets in Resources */,
 				14FF14B82C2A65E6008BF1C4 /* LoadingViewController.xib in Resources */,
 			);
@@ -606,6 +613,7 @@
 				14E0B4AC2C291AA20021ED24 /* MineViewController.swift in Sources */,
 				14E0B48E2C29199A0021ED24 /* MyTabBarController.swift in Sources */,
 				14BA6FB72C2905EC0066E831 /* AppDelegate.swift in Sources */,
+				14092F862C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift in Sources */,
 				14FF14C72C2A7264008BF1C4 /* HomeCollectionViewCell.swift in Sources */,
 				14BA6FC12C2905EC0066E831 /* swift_shopping.xcdatamodeld in Sources */,
 				14E0B4C22C29592A0021ED24 /* HomeModel.swift in Sources */,
