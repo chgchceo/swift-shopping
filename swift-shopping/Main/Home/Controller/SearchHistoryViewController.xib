@@ -46,6 +46,9 @@
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="搜索"/>
+                            <connections>
+                                <action selector="searchButtAc:" destination="-1" eventType="touchUpInside" id="Q6p-Bz-Pjj"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,6 +80,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image="clear" catalog="system"/>
+                    <connections>
+                        <action selector="clearButtAc:" destination="-1" eventType="touchUpInside" id="EHa-m5-83F"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

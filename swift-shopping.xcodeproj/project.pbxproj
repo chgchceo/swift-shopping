@@ -50,6 +50,8 @@
 		14FF14D02C2AC0B3008BF1C4 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF14CF2C2AC0B2008BF1C4 /* CategoryModel.swift */; };
 		8B99BB622C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */; };
 		8B99BB632C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */; };
+		8B99BB662C2C52F50074307B /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BB642C2C52F50074307B /* SearchResultViewController.swift */; };
+		8B99BB672C2C52F50074307B /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B99BB652C2C52F50074307B /* SearchResultViewController.xib */; };
 		8F5582FAC8A34EAB548FEFAD /* Pods_swift_shopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7FDBD82B9E9B0026170574 /* Pods_swift_shopping.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		5E7FDBD82B9E9B0026170574 /* Pods_swift_shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B99BB642C2C52F50074307B /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		8B99BB652C2C52F50074307B /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
 		E7D8005E74C163800BA91BB9 /* Pods-swift-shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-shopping.release.xcconfig"; path = "Target Support Files/Pods-swift-shopping/Pods-swift-shopping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +245,8 @@
 				14FF14BB2C2A6E92008BF1C4 /* HomeViewController.xib */,
 				14FF14C92C2AB6CB008BF1C4 /* SearchHistoryViewController.swift */,
 				14FF14CA2C2AB6CB008BF1C4 /* SearchHistoryViewController.xib */,
+				8B99BB642C2C52F50074307B /* SearchResultViewController.swift */,
+				8B99BB652C2C52F50074307B /* SearchResultViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				14FF14CC2C2AB6CC008BF1C4 /* SearchHistoryViewController.xib in Resources */,
 				14FF14BC2C2A6E92008BF1C4 /* HomeViewController.xib in Resources */,
 				8B99BB632C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib in Resources */,
+				8B99BB672C2C52F50074307B /* SearchResultViewController.xib in Resources */,
 				14FF14C82C2A7264008BF1C4 /* HomeCollectionViewCell.xib in Resources */,
 				14092F872C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib in Resources */,
 				14BA6FC32C2905EF0066E831 /* Assets.xcassets in Resources */,
@@ -637,6 +644,7 @@
 				14FF14BA2C2A6B8B008BF1C4 /* UIDevice+K_Addition.swift in Sources */,
 				14E0B4AC2C291AA20021ED24 /* MineViewController.swift in Sources */,
 				14E0B48E2C29199A0021ED24 /* MyTabBarController.swift in Sources */,
+				8B99BB662C2C52F50074307B /* SearchResultViewController.swift in Sources */,
 				14BA6FB72C2905EC0066E831 /* AppDelegate.swift in Sources */,
 				14092F862C2BABA900B4ECB5 /* CategoryCollectionViewCell.swift in Sources */,
 				14FF14C72C2A7264008BF1C4 /* HomeCollectionViewCell.swift in Sources */,
