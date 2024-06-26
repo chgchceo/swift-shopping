@@ -11,6 +11,9 @@
 		14092F872C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14092F852C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib */; };
 		14092F892C2BB6F700B4ECB5 /* MineBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14092F882C2BB6F700B4ECB5 /* MineBgView.swift */; };
 		14092F8B2C2BB6FD00B4ECB5 /* MineBgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14092F8A2C2BB6FD00B4ECB5 /* MineBgView.xib */; };
+		14092F8E2C2BDFCA00B4ECB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14092F8C2C2BDFCA00B4ECB5 /* LoginViewController.swift */; };
+		14092F8F2C2BDFCA00B4ECB5 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14092F8D2C2BDFCA00B4ECB5 /* LoginViewController.xib */; };
+		14092F912C2BECFB00B4ECB5 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14092F902C2BECFB00B4ECB5 /* LoginModel.swift */; };
 		14BA6FB72C2905EC0066E831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FB62C2905EC0066E831 /* AppDelegate.swift */; };
 		14BA6FC12C2905EC0066E831 /* swift_shopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FBF2C2905EC0066E831 /* swift_shopping.xcdatamodeld */; };
 		14BA6FC32C2905EF0066E831 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BA6FC22C2905EF0066E831 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 		14092F852C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		14092F882C2BB6F700B4ECB5 /* MineBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBgView.swift; sourceTree = "<group>"; };
 		14092F8A2C2BB6FD00B4ECB5 /* MineBgView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineBgView.xib; sourceTree = "<group>"; };
+		14092F8C2C2BDFCA00B4ECB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		14092F8D2C2BDFCA00B4ECB5 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		14092F902C2BECFB00B4ECB5 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		14BA6FB32C2905EC0066E831 /* swift-shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-shopping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BA6FB62C2905EC0066E831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14BA6FC02C2905EC0066E831 /* swift_shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swift_shopping.xcdatamodel; sourceTree = "<group>"; };
@@ -374,6 +380,8 @@
 				14E0B4A52C291A5D0021ED24 /* BaseViewController.swift */,
 				14FF14B52C2A65E6008BF1C4 /* LoadingViewController.swift */,
 				14FF14B62C2A65E6008BF1C4 /* LoadingViewController.xib */,
+				14092F8C2C2BDFCA00B4ECB5 /* LoginViewController.swift */,
+				14092F8D2C2BDFCA00B4ECB5 /* LoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				14FF14B32C2A5CAB008BF1C4 /* GlobalConfig.swift */,
+				14092F902C2BECFB00B4ECB5 /* LoginModel.swift */,
 				14FF14B92C2A6B8B008BF1C4 /* UIDevice+K_Addition.swift */,
 			);
 			path = Model;
@@ -530,6 +539,7 @@
 			files = (
 				14092F8B2C2BB6FD00B4ECB5 /* MineBgView.xib in Resources */,
 				14FF14CE2C2AB912008BF1C4 /* CategoryViewController.xib in Resources */,
+				14092F8F2C2BDFCA00B4ECB5 /* LoginViewController.xib in Resources */,
 				14E0B4C62C296B4C0021ED24 /* GoodsListTableViewCell.xib in Resources */,
 				14BA6FC62C2905EF0066E831 /* LaunchScreen.storyboard in Resources */,
 				14FF14CC2C2AB6CC008BF1C4 /* SearchHistoryViewController.xib in Resources */,
@@ -626,8 +636,10 @@
 				14E0B4C22C29592A0021ED24 /* HomeModel.swift in Sources */,
 				14E0B4B52C2938140021ED24 /* LNNetworkManager.swift in Sources */,
 				14E0B4AE2C291AAE0021ED24 /* CartViewController.swift in Sources */,
+				14092F912C2BECFB00B4ECB5 /* LoginModel.swift in Sources */,
 				14E0B4A82C291A7E0021ED24 /* HomeViewController.swift in Sources */,
 				14092F892C2BB6F700B4ECB5 /* MineBgView.swift in Sources */,
+				14092F8E2C2BDFCA00B4ECB5 /* LoginViewController.swift in Sources */,
 				14FF14C22C2A7228008BF1C4 /* HomeCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

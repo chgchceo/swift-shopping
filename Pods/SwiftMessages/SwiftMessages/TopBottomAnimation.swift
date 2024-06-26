@@ -130,7 +130,9 @@ public class TopBottomAnimation: NSObject, Animator {
         guard let adjustable = messageView as? MarginAdjustable & UIView,
             let context = context else { return }
         adjustable.preservesSuperviewLayoutMargins = false
-        adjustable.insetsLayoutMarginsFromSafeArea = false
+        if #available(iOS 11, *) {
+            adjustable.insetsLayoutMarginsFromSafeArea = false
+        }
         var layoutMargins = adjustable.defaultMarginAdjustment(context: context)
         switch style {
         case .top:

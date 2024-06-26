@@ -1,4 +1,4 @@
-platform:ios,'9.0'
+platform:ios,'12.0'
 target 'swift-shopping' do
   use_frameworks!
   pod 'Alamofire'
@@ -12,6 +12,7 @@ target 'swift-shopping' do
   pod 'SwiftMessages'
   pod 'SDCycleScrollView'
   pod 'EAIntroView'
+  pod 'Toast-Swift'
 
 
   pod 'MJRefresh'

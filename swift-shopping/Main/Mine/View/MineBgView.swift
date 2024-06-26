@@ -7,8 +7,20 @@
 
 import UIKit
 
+protocol MineBgViewDelegate{
+    
+    //退出登录
+    func ClickDoneButtAc() -> Void
+    
+    //去登录
+    func ClickLoginButtAc() -> Void
+}
+
+
+
 class MineBgView: UIView {
 
+    var delegate:MineBgViewDelegate?
     
     @IBOutlet var bgArr: [UIView]!
     
@@ -41,7 +53,19 @@ class MineBgView: UIView {
     
     @IBAction func logoutButtAc(_ sender: Any) {
         
+        if((self.delegate) != nil){
+            
+            self.delegate?.ClickDoneButtAc()
+        }
+    }
+    
+    
+    @IBAction func loginButtAc(_ sender: Any) {
         
+        if (self.delegate != nil){
+            
+            self.delegate?.ClickLoginButtAc()
+        }
     }
     
 }

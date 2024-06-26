@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-let LNConfig = LNNetworkConfiguration(baseURL: URL(string: "1"))
+let LNConfig = LNNetworkConfiguration(baseURL: URL(string: "https://smart-shop.itheima.net/index.php?s=/api"))
 
 let ScreenWidth = UIScreen.main.bounds.width
 

@@ -58,7 +58,6 @@ public class AnimationContext {
     }
 }
 
-@MainActor
 public protocol Animator: AnyObject {
 
     /// Adopting classes should declare as `weak`.

@@ -8,7 +8,6 @@
 
 import UIKit
 
-@MainActor
 private let globalInstance = SwiftMessages()
 
 /**
@@ -16,7 +15,6 @@ private let globalInstance = SwiftMessages()
  It behaves like a queue, only showing one message at a time. Message views that
  adopt the `Identifiable` protocol (as `MessageView` does) will have duplicates removed.
  */
-@MainActor
 open class SwiftMessages {
     
     /**
@@ -154,20 +152,6 @@ open class SwiftMessages {
     }
     
     /**
-     Specifies notification's haptic feedback to be used on `MessageView` display
-    */
-
-    /**
-     Specifies an optional haptic feedback to be used on `MessageView` display
-    */
-    public enum Haptic {
-        case success
-        case warning
-        case error
-    }
-    
-    
-    /**
      Specifies options for dimming the background behind the message view
      similar to a popover view controller.
     */
@@ -277,7 +261,16 @@ open class SwiftMessages {
          Specifies how the container for presenting the message view
          is selected. The default is `.Automatic`.
          */
-        public var presentationContext = PresentationContext.automatic
+        public var presentationContext = PresentationContext.automatic {
+            didSet {
+                if case .windowScene = presentationContext {
+                    guard #available(iOS 13.0, *) else {
+                        assertionFailure("windowScene is not supported below iOS 13.0.")
+                        return
+                    }
+                }
+            }
+        }
 
         /**
          Specifies the duration of the message view's time on screen before it is
@@ -290,13 +283,6 @@ open class SwiftMessages {
          similar to a popover view controller. The default is `.None`.
          */
         public var dimMode = DimMode.none
-        
-        
-        /**
-         Specifies notification's haptic feedback to be played on `MessageView` display.
-         No default value is provided.
-         */
-        public var haptic: Haptic? = nil
         
         /**
          Specifies whether or not the interactive pan-to-hide gesture is enabled
@@ -410,7 +396,9 @@ open class SwiftMessages {
      */
     open func show(config: Config, view: UIView) {
         let presenter = Presenter(config: config, view: view, delegate: self)
-        enqueue(presenter: presenter)
+        messageQueue.sync {
+            enqueue(presenter: presenter)
+        }
     }
     
     /**
@@ -437,11 +425,11 @@ open class SwiftMessages {
      - Parameter config: The configuration options.
      - Parameter viewProvider: A block that returns the view to be displayed.
      */
-    nonisolated open func show(config: Config, viewProvider: @escaping ViewProvider) {
-        Task { @MainActor [weak self] in
-            guard let self else { return }
+    open func show(config: Config, viewProvider: @escaping ViewProvider) {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
             let view = viewProvider()
-            self.show(config: config, view: view)
+            strongSelf.show(config: config, view: view)
         }
     }
     
@@ -463,7 +451,9 @@ open class SwiftMessages {
      Hide the current message being displayed by animating it away.
      */
     open func hide(animated: Bool = true) {
-        hideCurrent(animated: animated)
+        messageQueue.sync {
+            hideCurrent(animated: animated)
+        }
     }
 
     /**
@@ -471,10 +461,12 @@ open class SwiftMessages {
      clear the message queue.
      */
     open func hideAll() {
-        queue.removeAll()
-        delays.removeAll()
-        counts.removeAll()
-        hideCurrent()
+        messageQueue.sync {
+            queue.removeAll()
+            delays.removeAll()
+            counts.removeAll()
+            hideCurrent()
+        }
     }
 
     /**
@@ -484,12 +476,14 @@ open class SwiftMessages {
      - Parameter id: The identifier of the message to remove.
      */
     open func hide(id: String) {
-        if id == _current?.id {
-            hideCurrent()
+        messageQueue.sync {
+            if id == _current?.id {
+                hideCurrent()
+            }
+            queue = queue.filter { $0.id != id }
+            delays.remove(id: id)
+            counts[id] = nil
         }
-        queue = queue.filter { $0.id != id }
-        delays.remove(id: id)
-        counts[id] = nil
     }
 
     /**
@@ -498,19 +492,21 @@ open class SwiftMessages {
      shown from  multiple code paths to ensure that all paths are ready to hide.
      */
     open func hideCounted(id: String) {
-        if let count = counts[id] {
-            if count < 2 {
-                counts[id] = nil
-            } else {
-                counts[id] = count - 1
-                return
+        messageQueue.sync {
+            if let count = counts[id] {
+                if count < 2 {
+                    counts[id] = nil
+                } else {
+                    counts[id] = count - 1
+                    return
+                }
             }
+            if id == _current?.id {
+                hideCurrent()
+            }
+            queue = queue.filter { $0.id != id }
+            delays.remove(id: id)
         }
-        if id == _current?.id {
-            hideCurrent()
-        }
-        queue = queue.filter { $0.id != id }
-        delays.remove(id: id)
     }
 
     /**
@@ -542,7 +538,6 @@ open class SwiftMessages {
     open var pauseBetweenMessages: TimeInterval = 0.5
 
     /// Type for keeping track of delayed presentations
-    @MainActor
     fileprivate class Delays {
 
         fileprivate func add(presenter: Presenter) {
@@ -568,17 +563,20 @@ open class SwiftMessages {
     }
 
     func show(presenter: Presenter) {
-        enqueue(presenter: presenter)
+        messageQueue.sync {
+            enqueue(presenter: presenter)
+        }
     }
 
+    fileprivate let messageQueue = DispatchQueue(label: "it.swiftkick.SwiftMessages", attributes: [])
     fileprivate var queue: [Presenter] = []
     fileprivate var delays = Delays()
     fileprivate var counts: [String : Int] = [:]
     fileprivate var _current: Presenter? = nil {
         didSet {
             if oldValue != nil {
-                Task { [weak self] in
-                    try? await Task.sleep(seconds: self?.pauseBetweenMessages ?? 0)
+                let delayTime = DispatchTime.now() + pauseBetweenMessages
+                messageQueue.asyncAfter(deadline: delayTime) { [weak self] in
                     self?.dequeueNext()
                 }
             }
@@ -600,10 +598,9 @@ open class SwiftMessages {
         }
         if let delay = presenter.delayShow {
             delays.add(presenter: presenter)
-            Task { [weak self] in
-                try? await Task.sleep(seconds: delay)
+            messageQueue.asyncAfter(deadline: .now() + delay) { [weak self] in
                 // Don't enqueue if the view has been hidden during the delay window.
-                guard let self, self.delays.remove(presenter: presenter) else { return }
+                guard let strongSelf = self, strongSelf.delays.remove(presenter: presenter) else { return }
                 doEnqueue()
             }
         } else {
@@ -621,19 +618,26 @@ open class SwiftMessages {
         // block on animation completion.
         self.autohideToken = current
         current.showDate = CACurrentMediaTime()
-        do {
-            try current.show { [weak self] completed in
-                guard let self else { return }
-                guard completed else {
-                    self.internalHide(presenter: current)
-                    return
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            do {
+                try current.show { completed in
+                    guard let strongSelf = self else { return }
+                    guard completed else {
+                        strongSelf.messageQueue.sync {
+                            strongSelf.internalHide(presenter: current)
+                        }
+                        return
+                    }
+                    if current === strongSelf.autohideToken {
+                        strongSelf.queueAutoHide()
+                    }
                 }
-                if current === self.autohideToken {
-                    self.queueAutoHide()
+            } catch {
+                strongSelf.messageQueue.sync {
+                    strongSelf._current = nil
                 }
             }
-        } catch {
-            _current = nil
         }
     }
 
@@ -650,39 +654,38 @@ open class SwiftMessages {
         guard let current = _current, !current.isHiding else { return }
         let action = { [weak self] in
             current.hide(animated: animated) { (completed) in
-                guard completed, let self else { return }
-                guard self._current === current else { return }
-                self.counts[current.id] = nil
-                self._current = nil
+                guard completed, let strongSelf = self else { return }
+                strongSelf.messageQueue.sync {
+                    guard strongSelf._current === current else { return }
+                    strongSelf.counts[current.id] = nil
+                    strongSelf._current = nil
+                }
             }
         }
         let delay = current.delayHide ?? 0
-        Task {
-            try? await Task.sleep(seconds: delay)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             action()
         }
     }
 
-    fileprivate weak var autohideToken: Presenter?
+    fileprivate weak var autohideToken: AnyObject?
 
     fileprivate func queueAutoHide() {
         guard let current = _current else { return }
         autohideToken = current
         if let pauseDuration = current.pauseDuration {
-            Task { [weak self] in
-                try? await Task.sleep(seconds: pauseDuration)
+            let delayTime = DispatchTime.now() + pauseDuration
+            messageQueue.asyncAfter(deadline: delayTime, execute: {
                 // Make sure we've still got a green light to auto-hide.
-                guard let self, self.autohideToken == current else { return }
+                if self.autohideToken !== current { return }
                 self.internalHide(presenter: current)
-            }
+            })
         }
     }
 
     deinit {
-        guard let current = _current else { return }
-        Task { @MainActor [current] in
-            current.hide(animated: true) { _ in }
-        }
+        // Prevent orphaned messages
+        hideCurrent()
     }
 }
 
@@ -698,7 +701,11 @@ extension SwiftMessages {
      - Returns: The view of type `T` if it is currently being shown or hidden.
      */
     public func current<T: UIView>() -> T? {
-        _current?.view as? T
+        var view: T?
+        messageQueue.sync {
+            view = _current?.view as? T
+        }
+        return view
     }
 
     /**
@@ -708,7 +715,13 @@ extension SwiftMessages {
      - Returns: The view with matching id if currently being shown or hidden.
     */
     public func current<T: UIView>(id: String) -> T? {
-        _current?.id == id ? _current?.view as? T : nil
+        var view: T?
+        messageQueue.sync {
+            if let current = _current, current.id == id {
+                view = current.view as? T
+            }
+        }
+        return view
     }
 
     /**
@@ -718,7 +731,13 @@ extension SwiftMessages {
      - Returns: The view with matching id if currently queued to be shown.
      */
     public func queued<T: UIView>(id: String) -> T? {
-        queue.first { $0.id == id }?.view as? T
+        var view: T?
+        messageQueue.sync {
+            if let queued = queue.first(where: { $0.id == id }) {
+                view = queued.view as? T
+            }
+        }
+        return view
     }
 
     /**
@@ -740,12 +759,16 @@ extension SwiftMessages {
 extension SwiftMessages: PresenterDelegate {
 
     func hide(presenter: Presenter) {
-        self.internalHide(presenter: presenter)
+        messageQueue.sync {
+            self.internalHide(presenter: presenter)
+        }
     }
 
     public func hide(animator: Animator) {
-        guard let presenter = self.presenter(forAnimator: animator) else { return }
-        self.internalHide(presenter: presenter)
+        messageQueue.sync {
+            guard let presenter = self.presenter(forAnimator: animator) else { return }
+            self.internalHide(presenter: presenter)
+        }
     }
 
     public func panStarted(animator: Animator) {
@@ -875,7 +898,7 @@ extension SwiftMessages {
         globalInstance.show(viewProvider: viewProvider)
     }
     
-    nonisolated public static func show(config: Config, viewProvider: @escaping ViewProvider) {
+    public static func show(config: Config, viewProvider: @escaping ViewProvider) {
         globalInstance.show(config: config, viewProvider: viewProvider)
     }
     

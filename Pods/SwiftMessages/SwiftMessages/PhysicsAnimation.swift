@@ -8,7 +8,6 @@
 
 import UIKit
 
-@MainActor
 public class PhysicsAnimation: NSObject, Animator {
 
     public enum Placement {
@@ -94,7 +93,9 @@ public class PhysicsAnimation: NSObject, Animator {
         guard let adjustable = messageView as? MarginAdjustable & UIView,
             let context = context else { return }
         adjustable.preservesSuperviewLayoutMargins = false
-        adjustable.insetsLayoutMarginsFromSafeArea = false
+        if #available(iOS 11, *) {
+            adjustable.insetsLayoutMarginsFromSafeArea = false
+        }
         adjustable.layoutMargins = adjustable.defaultMarginAdjustment(context: context)
     }
 

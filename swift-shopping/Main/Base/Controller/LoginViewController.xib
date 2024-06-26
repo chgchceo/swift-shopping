@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="swift_shopping" customModuleProvider="target">
+            <connections>
+                <outlet property="codeButt" destination="lgw-24-x6i" id="OXU-ve-elm"/>
+                <outlet property="codeField" destination="fBQ-WV-foU" id="TV9-i6-qHJ"/>
+                <outlet property="doneButt" destination="A0K-TN-3PK" id="1Ko-7D-gcb"/>
+                <outlet property="imgButt" destination="6Fx-sp-t5p" id="GLw-6f-oUO"/>
+                <outlet property="imgField" destination="bhx-JV-7Hy" id="6RT-46-BPV"/>
+                <outlet property="phoneField" destination="c6b-ZE-FU2" id="9qn-N3-cjs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sk6-Va-ReZ">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ZGg-yZ-hL2"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMO-es-keE">
+                    <rect key="frame" x="20" y="38" width="312" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="312" id="VB0-TW-O9s"/>
+                        <constraint firstAttribute="height" constant="49" id="kIO-g8-c5Q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未注册的手机号登录后将自动注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69W-NB-xf4">
+                    <rect key="frame" x="20" y="94" width="312" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="312" id="RhY-lv-Azg"/>
+                        <constraint firstAttribute="height" constant="20" id="XmE-2p-uTT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6b-ZE-FU2">
+                    <rect key="frame" x="20" y="155" width="352" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="NbL-eF-M7w"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入图形验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-JV-7Hy">
+                    <rect key="frame" x="20" y="224" width="197" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Yey-dp-y7L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-WV-foU">
+                    <rect key="frame" x="20" y="293" width="197" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="xV2-Ac-mNT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0K-TN-3PK">
+                    <rect key="frame" x="20" y="389" width="352" height="44"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sse-lX-ZTb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtAc:" destination="-1" eventType="touchUpInside" id="fj4-lh-WRF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-24-x6i">
+                    <rect key="frame" x="238" y="298" width="118" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Uyr-uQ-e07"/>
+                        <constraint firstAttribute="width" constant="118" id="b0u-Xm-5Ej"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="获取验证码">
+                        <color key="titleColor" systemColor="systemYellowColor"/>
+                    </state>
+                    <connections>
+                        <action selector="codeButtAc:" destination="-1" eventType="touchUpInside" id="LVC-gK-bdt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fx-sp-t5p">
+                    <rect key="frame" x="238" y="229" width="118" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="118" id="9SC-rv-9II"/>
+                        <constraint firstAttribute="height" constant="39" id="XeG-hZ-7kt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <color key="titleColor" systemColor="systemYellowColor"/>
+                    </state>
+                    <connections>
+                        <action selector="imgButtAc:" destination="-1" eventType="touchUpInside" id="NMv-Ho-wf0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Sk6-Va-ReZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3ZV-z2-Cty"/>
+                <constraint firstItem="A0K-TN-3PK" firstAttribute="top" secondItem="fBQ-WV-foU" secondAttribute="bottom" constant="52" id="5EP-EW-wbq"/>
+                <constraint firstItem="fBQ-WV-foU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6Ui-2j-dJ6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="A0K-TN-3PK" secondAttribute="trailing" constant="21" id="Iyd-6n-Rd6"/>
+                <constraint firstItem="bhx-JV-7Hy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JEA-GV-9aF"/>
+                <constraint firstItem="lgw-24-x6i" firstAttribute="leading" secondItem="fBQ-WV-foU" secondAttribute="trailing" constant="21" id="KaR-lh-VCS"/>
+                <constraint firstItem="fBQ-WV-foU" firstAttribute="top" secondItem="bhx-JV-7Hy" secondAttribute="bottom" constant="25" id="KrC-CV-3tF"/>
+                <constraint firstItem="c6b-ZE-FU2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LOD-6U-vTj"/>
+                <constraint firstItem="A0K-TN-3PK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NQE-Iq-ntK"/>
+                <constraint firstItem="6Fx-sp-t5p" firstAttribute="top" secondItem="c6b-ZE-FU2" secondAttribute="bottom" constant="30" id="QNY-uK-bbC"/>
+                <constraint firstItem="lgw-24-x6i" firstAttribute="top" secondItem="6Fx-sp-t5p" secondAttribute="bottom" constant="30" id="SjU-Fb-ynV"/>
+                <constraint firstItem="6Fx-sp-t5p" firstAttribute="leading" secondItem="bhx-JV-7Hy" secondAttribute="trailing" constant="21" id="T0w-55-gxH"/>
+                <constraint firstAttribute="trailing" secondItem="Sk6-Va-ReZ" secondAttribute="trailing" id="W8W-wi-1jU"/>
+                <constraint firstItem="bhx-JV-7Hy" firstAttribute="top" secondItem="c6b-ZE-FU2" secondAttribute="bottom" constant="25" id="WZQ-nT-dZL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Fx-sp-t5p" secondAttribute="trailing" constant="37" id="Ywt-Uo-JnU"/>
+                <constraint firstItem="Sk6-Va-ReZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZWW-rT-il6"/>
+                <constraint firstItem="69W-NB-xf4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bnS-F3-Dpe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c6b-ZE-FU2" secondAttribute="trailing" constant="21" id="eqc-RG-gRx"/>
+                <constraint firstItem="c6b-ZE-FU2" firstAttribute="top" secondItem="69W-NB-xf4" secondAttribute="bottom" constant="41" id="g6b-vY-Rfi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lgw-24-x6i" secondAttribute="trailing" constant="37" id="jlZ-s9-9Sv"/>
+                <constraint firstItem="hMO-es-keE" firstAttribute="top" secondItem="Sk6-Va-ReZ" secondAttribute="bottom" constant="37" id="jyU-rE-LIf"/>
+                <constraint firstItem="69W-NB-xf4" firstAttribute="top" secondItem="hMO-es-keE" secondAttribute="bottom" constant="7" id="kLK-ow-31v"/>
+                <constraint firstItem="hMO-es-keE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="p1E-2i-XwF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -41,6 +41,8 @@ open class LNRequest: LNBaseRequest {
         if req.prepareRequest(path: path, method: method, parameters: parameters) == false {
             return nil
         }
+        
+        req.headers?.add(name: "platform", value: "H5")
         return req.manager.request(req.url,
                                    method: req.method,
                                    parameters: req.parameters,

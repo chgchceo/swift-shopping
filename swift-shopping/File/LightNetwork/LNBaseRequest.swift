@@ -43,7 +43,7 @@ open class LNBaseRequest: NSObject {
     open var encoding: ParameterEncoding = URLEncoding.default
     
     /// `HTTPHeaders` value to be added to the `URLRequest`. `nil` by default.
-    open var headers: HTTPHeaders?
+    open var headers: HTTPHeaders? = ["platform":"H5"]
     
     /// The cache policy of the `URLRequest`.`.useProtocolCachePolicy` by default.
     open var cachePolicy: URLRequest.CachePolicy = .useProtocolCachePolicy
