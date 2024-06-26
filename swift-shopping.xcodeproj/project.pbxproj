@@ -48,6 +48,8 @@
 		14FF14CC2C2AB6CC008BF1C4 /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FF14CA2C2AB6CB008BF1C4 /* SearchHistoryViewController.xib */; };
 		14FF14CE2C2AB912008BF1C4 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FF14CD2C2AB912008BF1C4 /* CategoryViewController.xib */; };
 		14FF14D02C2AC0B3008BF1C4 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FF14CF2C2AC0B2008BF1C4 /* CategoryModel.swift */; };
+		8B99BB622C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */; };
+		8B99BB632C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */; };
 		8F5582FAC8A34EAB548FEFAD /* Pods_swift_shopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7FDBD82B9E9B0026170574 /* Pods_swift_shopping.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		14FF14CF2C2AC0B2008BF1C4 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		5BD6B247F28FA72762D98ACE /* Pods-swift-shopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-shopping.debug.xcconfig"; path = "Target Support Files/Pods-swift-shopping/Pods-swift-shopping.debug.xcconfig"; sourceTree = "<group>"; };
 		5E7FDBD82B9E9B0026170574 /* Pods_swift_shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		E7D8005E74C163800BA91BB9 /* Pods-swift-shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-shopping.release.xcconfig"; path = "Target Support Files/Pods-swift-shopping/Pods-swift-shopping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,6 +262,8 @@
 				14FF14C12C2A7228008BF1C4 /* HomeCollectionView.swift */,
 				14FF14C52C2A7264008BF1C4 /* HomeCollectionViewCell.swift */,
 				14FF14C62C2A7264008BF1C4 /* HomeCollectionViewCell.xib */,
+				8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */,
+				8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				14BA6FC62C2905EF0066E831 /* LaunchScreen.storyboard in Resources */,
 				14FF14CC2C2AB6CC008BF1C4 /* SearchHistoryViewController.xib in Resources */,
 				14FF14BC2C2A6E92008BF1C4 /* HomeViewController.xib in Resources */,
+				8B99BB632C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib in Resources */,
 				14FF14C82C2A7264008BF1C4 /* HomeCollectionViewCell.xib in Resources */,
 				14092F872C2BABA900B4ECB5 /* CategoryCollectionViewCell.xib in Resources */,
 				14BA6FC32C2905EF0066E831 /* Assets.xcassets in Resources */,
@@ -621,6 +628,7 @@
 				14E0B4C52C296B4C0021ED24 /* GoodsListTableViewCell.swift in Sources */,
 				14FF14CB2C2AB6CB008BF1C4 /* SearchHistoryViewController.swift in Sources */,
 				14FF14D02C2AC0B3008BF1C4 /* CategoryModel.swift in Sources */,
+				8B99BB622C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift in Sources */,
 				14E0B4B72C2938140021ED24 /* LNRequest.swift in Sources */,
 				14FF14B42C2A5CAB008BF1C4 /* GlobalConfig.swift in Sources */,
 				14E0B48C2C29195F0021ED24 /* MyNavigationController.swift in Sources */,

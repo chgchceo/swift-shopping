@@ -158,7 +158,7 @@ class LoginViewController: BaseViewController {
             self.view.makeToast("请输入短信验证码",position: .center)
             return
         }
-        let isParty:Bool = false
+        let isParty:Bool = true
         let param:[String:Any] = ["form":
         
                                     [
