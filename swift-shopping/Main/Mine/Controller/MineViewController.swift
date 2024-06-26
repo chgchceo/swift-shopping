@@ -8,22 +8,27 @@
 import UIKit
 
 class MineViewController: BaseViewController {
+    
+    var bgView = MineBgView()
+    var tableView:UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "我的"
+        
+        self.initView()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initView() -> Void {
+        
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight-NavigationBarHeight-TabBarHeight), style: .grouped)
+        
+        self.view.addSubview(self.tableView!)
+        self.bgView = Bundle.main.loadNibNamed("MineBgView", owner: nil)?.last as! MineBgView
+        self.tableView?.tableHeaderView = self.bgView
+        self.tableView?.backgroundColor = HexRGBAlpha(0xf7f7f7,1)
     }
-    */
 
 }
