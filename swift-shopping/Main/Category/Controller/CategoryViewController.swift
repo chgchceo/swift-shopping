@@ -77,7 +77,7 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = model.name
         cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.textLabel?.textColor = UIColor.gray
-        cell.backgroundColor = UIColor.groupTableViewBackground
+        cell.backgroundColor = HexRGBAlpha(0xf7f7f7, 1)
         if(indexPath.row == self.currentIndex){
             cell.backgroundColor = UIColor.white
             cell.textLabel?.textColor = UIColor.red
@@ -114,6 +114,16 @@ class CategoryViewController: BaseViewController, UITableViewDataSource, UITable
         return cell
         
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let model:CategoryChildrenModel = self.cModel?.data?.list?[self.currentIndex].children?[indexPath.item] ?? CategoryChildrenModel()
+        
+        let Id = String(model.category_id)
+        let resultVc = SearchResultViewController()
+        resultVc.hidesBottomBarWhenPushed = true
+        resultVc.categoryId = Id
+        self.navigationController?.pushViewController(resultVc, animated: true)
+    }
     
 }

@@ -26,8 +26,29 @@ class BaseViewController: UIViewController {
     
     func hiddenLoadingView() -> Void {
         
-        
         self.loadView.dismiss(animated: false)
     }
 
+    func showAlert(title:String,message:String,ok:String,okBlock: @escaping () -> Void){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action1 = UIAlertAction(title:ok, style: .default) { (action) in
+            okBlock();
+        }
+        alertController.addAction(action1)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showAlert(title:String,message:String,ok:String,cancel:String,okBlock: @escaping () -> Void,cancelBlock: @escaping () -> Void){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action1 = UIAlertAction(title:ok, style: .default) { (action) in
+            okBlock();
+        }
+        let action2 = UIAlertAction(title:cancel, style: .cancel) { (action) in
+            cancelBlock()
+        }
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }

@@ -42,7 +42,7 @@ class CategoryChildrenModel:BaseModel{
     
     var name:String = ""
     var image:CategoryImageModel?
-    
+    var category_id:Int = 0
     
 }
 

@@ -21,6 +21,7 @@
 		14BA6FD12C2905EF0066E831 /* swift_shoppingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FD02C2905EF0066E831 /* swift_shoppingTests.swift */; };
 		14BA6FDB2C2905EF0066E831 /* swift_shoppingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FDA2C2905EF0066E831 /* swift_shoppingUITests.swift */; };
 		14BA6FDD2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FDC2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift */; };
+		14C580442C2D0C230012993F /* GoodsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C580432C2D0C230012993F /* GoodsListModel.swift */; };
 		14E0B48C2C29195F0021ED24 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B48B2C29195F0021ED24 /* MyNavigationController.swift */; };
 		14E0B48E2C29199A0021ED24 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B48D2C29199A0021ED24 /* MyTabBarController.swift */; };
 		14E0B4A62C291A5D0021ED24 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B4A52C291A5D0021ED24 /* BaseViewController.swift */; };
@@ -91,6 +92,7 @@
 		14BA6FD62C2905EF0066E831 /* swift-shoppingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-shoppingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BA6FDA2C2905EF0066E831 /* swift_shoppingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_shoppingUITests.swift; sourceTree = "<group>"; };
 		14BA6FDC2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_shoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		14C580432C2D0C230012993F /* GoodsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsListModel.swift; sourceTree = "<group>"; };
 		14E0B48B2C29195F0021ED24 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		14E0B48D2C29199A0021ED24 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		14E0B4A52C291A5D0021ED24 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				14E0B4C12C29592A0021ED24 /* HomeModel.swift */,
+				14C580432C2D0C230012993F /* GoodsListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C580442C2D0C230012993F /* GoodsListModel.swift in Sources */,
 				14E0B4A62C291A5D0021ED24 /* BaseViewController.swift in Sources */,
 				14FF14BE2C2A71EF008BF1C4 /* HomeBannerView.swift in Sources */,
 				14E0B4B42C2938140021ED24 /* LNNetworkConfiguration.swift in Sources */,

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwiftMessages
 
-class SearchHistoryViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate {
+class SearchHistoryViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate, UIAlertViewDelegate {
    
     var data:Array<String>? = []
 
@@ -36,7 +37,7 @@ class SearchHistoryViewController: BaseViewController, UICollectionViewDataSourc
 
     func initView() -> Void {
         
-        self.bgView.layer.cornerRadius = 5
+        self.bgView.layer.cornerRadius = 10
         self.bgView.layer.masksToBounds = true
         
         let layout = UICollectionViewFlowLayout()
@@ -77,15 +78,18 @@ class SearchHistoryViewController: BaseViewController, UICollectionViewDataSourc
     
     func initData() -> Void {
         
-        let key:String = UserDefaults.standard.object(forKey: "searchListKey") as! String
+        let key:String = UserDefaults.standard.object(forKey: "searchListKey") as? String ?? ""
         
         if ( key.count > 0){
             
             let data:Array<String> = key.components(separatedBy: "%=%")
             
             self.data = data
-            self.collectionView?.reloadData()
+        }else{
+            
+            self.data = []
         }
+        self.collectionView?.reloadData()
     }
    
     
@@ -95,6 +99,12 @@ class SearchHistoryViewController: BaseViewController, UICollectionViewDataSourc
         
         if text.count > 0 {
             
+            let index = self.data?.firstIndex(of: text) ?? -1
+            
+            if index != -1{
+                
+                self.data?.remove(at: index)
+            }
             self.data?.insert(text, at: 0)
             
             //baocun
@@ -105,20 +115,26 @@ class SearchHistoryViewController: BaseViewController, UICollectionViewDataSourc
         }
         
         //go list
-        
+        let searchResultVc = SearchResultViewController()
+        searchResultVc.goodsName = text
+        self.navigationController?.pushViewController(searchResultVc, animated: true)
     }
     
     
     
     @IBAction func clearButtAc(_ sender: Any) {
         
-        
-        self.view.makeToast("是否确定要清除全部的历史记录", point: CGPoint(x: 90, y: 90), title: "温馨提示", image: nil) { didTap in
+        self.showAlert(title: "温馨提示", message: "是否确定要清除全部的搜索记录", ok: "确定", cancel: "取消") {
             
+            print("确定")
+            UserDefaults.standard.set("", forKey: "searchListKey")
+            self.initData()
             
+        } cancelBlock: {
             
+            print("取消")
         }
-        
+
     }
     
 }
