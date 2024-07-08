@@ -76,6 +76,11 @@ class SearchResultViewController: BaseViewController,UITextFieldDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        let detailVc = GoodsDetailViewController()
+        let data:DetailModel = self.data?[indexPath.row] as! DetailModel
+        detailVc.goodsId = data.goods_id
+        self.navigationController?.pushViewController(detailVc, animated: true)
     }
 //    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
 //        

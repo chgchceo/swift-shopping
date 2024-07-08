@@ -22,6 +22,9 @@
 		14BA6FDB2C2905EF0066E831 /* swift_shoppingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FDA2C2905EF0066E831 /* swift_shoppingUITests.swift */; };
 		14BA6FDD2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA6FDC2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift */; };
 		14C580442C2D0C230012993F /* GoodsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C580432C2D0C230012993F /* GoodsListModel.swift */; };
+		14DA80D42C3B96B10077173D /* GoodsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA80D22C3B96B10077173D /* GoodsDetailViewController.swift */; };
+		14DA80D52C3B96B10077173D /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DA80D32C3B96B10077173D /* GoodsDetailViewController.xib */; };
+		14DA80D72C3B97590077173D /* GoodsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA80D62C3B97590077173D /* GoodsDetailView.swift */; };
 		14E0B48C2C29195F0021ED24 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B48B2C29195F0021ED24 /* MyNavigationController.swift */; };
 		14E0B48E2C29199A0021ED24 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B48D2C29199A0021ED24 /* MyTabBarController.swift */; };
 		14E0B4A62C291A5D0021ED24 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0B4A52C291A5D0021ED24 /* BaseViewController.swift */; };
@@ -93,6 +96,9 @@
 		14BA6FDA2C2905EF0066E831 /* swift_shoppingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_shoppingUITests.swift; sourceTree = "<group>"; };
 		14BA6FDC2C2905EF0066E831 /* swift_shoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_shoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		14C580432C2D0C230012993F /* GoodsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsListModel.swift; sourceTree = "<group>"; };
+		14DA80D22C3B96B10077173D /* GoodsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsDetailViewController.swift; sourceTree = "<group>"; };
+		14DA80D32C3B96B10077173D /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
+		14DA80D62C3B97590077173D /* GoodsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsDetailView.swift; sourceTree = "<group>"; };
 		14E0B48B2C29195F0021ED24 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		14E0B48D2C29199A0021ED24 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		14E0B4A52C291A5D0021ED24 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 				14FF14CA2C2AB6CB008BF1C4 /* SearchHistoryViewController.xib */,
 				8B99BB642C2C52F50074307B /* SearchResultViewController.swift */,
 				8B99BB652C2C52F50074307B /* SearchResultViewController.xib */,
+				14DA80D22C3B96B10077173D /* GoodsDetailViewController.swift */,
+				14DA80D32C3B96B10077173D /* GoodsDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				14FF14C62C2A7264008BF1C4 /* HomeCollectionViewCell.xib */,
 				8B99BB602C2C4BB60074307B /* SearchHistoryCollectionViewCell.swift */,
 				8B99BB612C2C4BB60074307B /* SearchHistoryCollectionViewCell.xib */,
+				14DA80D62C3B97590077173D /* GoodsDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,6 +563,7 @@
 			files = (
 				14092F8B2C2BB6FD00B4ECB5 /* MineBgView.xib in Resources */,
 				14FF14CE2C2AB912008BF1C4 /* CategoryViewController.xib in Resources */,
+				14DA80D52C3B96B10077173D /* GoodsDetailViewController.xib in Resources */,
 				14092F8F2C2BDFCA00B4ECB5 /* LoginViewController.xib in Resources */,
 				14E0B4C62C296B4C0021ED24 /* GoodsListTableViewCell.xib in Resources */,
 				14BA6FC62C2905EF0066E831 /* LaunchScreen.storyboard in Resources */,
@@ -646,6 +656,7 @@
 				14E0B4AA2C291A950021ED24 /* CategoryViewController.swift in Sources */,
 				14E0B4B62C2938140021ED24 /* LNBaseRequest.swift in Sources */,
 				14FF14BA2C2A6B8B008BF1C4 /* UIDevice+K_Addition.swift in Sources */,
+				14DA80D42C3B96B10077173D /* GoodsDetailViewController.swift in Sources */,
 				14E0B4AC2C291AA20021ED24 /* MineViewController.swift in Sources */,
 				14E0B48E2C29199A0021ED24 /* MyTabBarController.swift in Sources */,
 				8B99BB662C2C52F50074307B /* SearchResultViewController.swift in Sources */,
@@ -656,6 +667,7 @@
 				14E0B4C22C29592A0021ED24 /* HomeModel.swift in Sources */,
 				14E0B4B52C2938140021ED24 /* LNNetworkManager.swift in Sources */,
 				14E0B4AE2C291AAE0021ED24 /* CartViewController.swift in Sources */,
+				14DA80D72C3B97590077173D /* GoodsDetailView.swift in Sources */,
 				14092F912C2BECFB00B4ECB5 /* LoginModel.swift in Sources */,
 				14E0B4A82C291A7E0021ED24 /* HomeViewController.swift in Sources */,
 				14092F892C2BB6F700B4ECB5 /* MineBgView.swift in Sources */,

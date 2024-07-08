@@ -18,7 +18,15 @@ class GoodsListModel :BaseModel{
 class GoodsDataModel:BaseModel{
     
     var list:GoodsList?
+    
+    var detail:GoodsDetailModel?
 }
+
+class GoodsBannerModel:BaseModel{
+    
+    var preview_url:String = ""
+}
+
 class GoodsList:BaseModel{
     
 
@@ -34,4 +42,5 @@ class GoodsDetailModel:BaseModel{
     var goods_price_min:String?
     var goods_name:String?
     var goods_sales:String?
+    var goods_images:[GoodsBannerModel]?
 }
